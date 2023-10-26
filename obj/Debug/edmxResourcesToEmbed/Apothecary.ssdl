@@ -1,0 +1,152 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище Apothecary" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="Поставщики">
+    <Key>
+      <PropertyRef Name="Id_Поставщика" />
+    </Key>
+    <Property Name="Id_Поставщика" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Название" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="ФИО" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Телефон" Type="int" Nullable="false" />
+    <Property Name="Город" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Прибыль">
+    <Key>
+      <PropertyRef Name="Id_Прибыли" />
+    </Key>
+    <Property Name="Id_Прибыли" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Id_Товара" Type="int" Nullable="false" />
+    <Property Name="Стоимость_Привезенных_Товаров" Type="money" Nullable="false" />
+    <Property Name="Количество_Привезенных_Товаров" Type="int" Nullable="false" />
+    <Property Name="Стоимость_Продажи_Товаров" Type="money" Nullable="false" />
+    <Property Name="Количество_Продажи_Товаров" Type="int" Nullable="false" />
+    <Property Name="Итого" Type="money" StoreGeneratedPattern="Computed" />
+  </EntityType>
+  <EntityType Name="Продажи">
+    <Key>
+      <PropertyRef Name="Id_продаж" />
+    </Key>
+    <Property Name="Id_продаж" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Дата_продажи" Type="date" Nullable="false" />
+    <Property Name="Id_товара" Type="int" Nullable="false" />
+    <Property Name="Стоимость" Type="money" Nullable="false" />
+    <Property Name="Количество" Type="int" Nullable="false" />
+    <Property Name="Сумма_Продаж" Type="money" StoreGeneratedPattern="Computed" />
+  </EntityType>
+  <EntityType Name="Расчет_с_поставщиками">
+    <Key>
+      <PropertyRef Name="Id_расчета" />
+    </Key>
+    <Property Name="Id_расчета" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Дата_поставки" Type="date" />
+    <Property Name="Сумма_прибыли" Type="money" Nullable="false" />
+    <Property Name="Id_поставщика" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Списание">
+    <Key>
+      <PropertyRef Name="Id_списания" />
+    </Key>
+    <Property Name="Id_списания" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Дата_Списания" Type="date" Nullable="false" />
+    <Property Name="Id_Товара" Type="int" Nullable="false" />
+    <Property Name="Стоимость" Type="money" Nullable="false" />
+    <Property Name="Количество" Type="int" Nullable="false" />
+    <Property Name="Общая_сумма" Type="money" StoreGeneratedPattern="Computed" />
+  </EntityType>
+  <EntityType Name="Список_Товаров">
+    <Key>
+      <PropertyRef Name="Id_Товара" />
+    </Key>
+    <Property Name="Id_Товара" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Название_Товара" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Группа" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Дата_Изготовления" Type="date" Nullable="false" />
+    <Property Name="Дата_Окончания_Срока_Годности" Type="date" Nullable="false" />
+    <Property Name="Производитель" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Дозировка" Type="int" Nullable="false" />
+    <Property Name="Id_поставщика" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Продажи_Список_Товаров">
+    <End Role="Список_Товаров" Type="Self.Список_Товаров" Multiplicity="1" />
+    <End Role="Продажи" Type="Self.Продажи" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Список_Товаров">
+        <PropertyRef Name="Id_Товара" />
+      </Principal>
+      <Dependent Role="Продажи">
+        <PropertyRef Name="Id_товара" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Расчет_с_поставщиками_Поставщики">
+    <End Role="Поставщики" Type="Self.Поставщики" Multiplicity="1" />
+    <End Role="Расчет_с_поставщиками" Type="Self.Расчет_с_поставщиками" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Поставщики">
+        <PropertyRef Name="Id_Поставщика" />
+      </Principal>
+      <Dependent Role="Расчет_с_поставщиками">
+        <PropertyRef Name="Id_поставщика" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Списание_Список_Товаров">
+    <End Role="Список_Товаров" Type="Self.Список_Товаров" Multiplicity="1" />
+    <End Role="Списание" Type="Self.Списание" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Список_Товаров">
+        <PropertyRef Name="Id_Товара" />
+      </Principal>
+      <Dependent Role="Списание">
+        <PropertyRef Name="Id_Товара" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Список_Товаров_Поставщики">
+    <End Role="Поставщики" Type="Self.Поставщики" Multiplicity="1" />
+    <End Role="Список_Товаров" Type="Self.Список_Товаров" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Поставщики">
+        <PropertyRef Name="Id_Поставщика" />
+      </Principal>
+      <Dependent Role="Список_Товаров">
+        <PropertyRef Name="Id_поставщика" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Хранилище ApothecaryContainer">
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Поставщики" EntityType="Self.Поставщики" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Прибыль" EntityType="Self.Прибыль" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Продажи" EntityType="Self.Продажи" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Расчет_с_поставщиками" EntityType="Self.Расчет_с_поставщиками" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Списание" EntityType="Self.Списание" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Список_Товаров" EntityType="Self.Список_Товаров" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Продажи_Список_Товаров" Association="Self.FK_Продажи_Список_Товаров">
+      <End Role="Список_Товаров" EntitySet="Список_Товаров" />
+      <End Role="Продажи" EntitySet="Продажи" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Расчет_с_поставщиками_Поставщики" Association="Self.FK_Расчет_с_поставщиками_Поставщики">
+      <End Role="Поставщики" EntitySet="Поставщики" />
+      <End Role="Расчет_с_поставщиками" EntitySet="Расчет_с_поставщиками" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Списание_Список_Товаров" Association="Self.FK_Списание_Список_Товаров">
+      <End Role="Список_Товаров" EntitySet="Список_Товаров" />
+      <End Role="Списание" EntitySet="Списание" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Список_Товаров_Поставщики" Association="Self.FK_Список_Товаров_Поставщики">
+      <End Role="Поставщики" EntitySet="Поставщики" />
+      <End Role="Список_Товаров" EntitySet="Список_Товаров" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
