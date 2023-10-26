@@ -1,0 +1,322 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D2DD8444-EDF6-4C62-B282-0A376BA92BE8}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>ApothecaryApp</RootNamespace>
+    <AssemblyName>ApothecaryApp</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AddIncome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddIncome.Designer.cs">
+      <DependentUpon>AddIncome.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddMedicine.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddMedicine.Designer.cs">
+      <DependentUpon>AddMedicine.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddPay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddPay.Designer.cs">
+      <DependentUpon>AddPay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddProvider.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddProvider.Designer.cs">
+      <DependentUpon>AddProvider.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddSale.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddSale.Designer.cs">
+      <DependentUpon>AddSale.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddWriteoff.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddWriteoff.Designer.cs">
+      <DependentUpon>AddWriteoff.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Apothecary.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Apothecary.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Apothecary.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Apothecary.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Apothecary.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Apothecary.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="DeleteIncome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DeleteIncome.Designer.cs">
+      <DependentUpon>DeleteIncome.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DeleteMedicine.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DeleteMedicine.Designer.cs">
+      <DependentUpon>DeleteMedicine.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DeletePay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DeletePay.Designer.cs">
+      <DependentUpon>DeletePay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DeleteProvider.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DeleteProvider.Designer.cs">
+      <DependentUpon>DeleteProvider.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DeleteSale.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DeleteSale.Designer.cs">
+      <DependentUpon>DeleteSale.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DeleteWriteoff.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DeleteWriteoff.Designer.cs">
+      <DependentUpon>DeleteWriteoff.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditIncome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditIncome.Designer.cs">
+      <DependentUpon>EditIncome.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditMedicine.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditMedicine.Designer.cs">
+      <DependentUpon>EditMedicine.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditPay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditPay.Designer.cs">
+      <DependentUpon>EditPay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditProvider.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditProvider.Designer.cs">
+      <DependentUpon>EditProvider.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditSale.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditSale.Designer.cs">
+      <DependentUpon>EditSale.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditWriteoff.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditWriteoff.Designer.cs">
+      <DependentUpon>EditWriteoff.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainWindow.Designer.cs">
+      <DependentUpon>MainWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SearchWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SearchWindow.Designer.cs">
+      <DependentUpon>SearchWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="sysdiagrams.cs">
+      <DependentUpon>Apothecary.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Поставщики.cs">
+      <DependentUpon>Apothecary.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Прибыль.cs">
+      <DependentUpon>Apothecary.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Продажи.cs">
+      <DependentUpon>Apothecary.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Расчет_с_поставщиками.cs">
+      <DependentUpon>Apothecary.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Списание.cs">
+      <DependentUpon>Apothecary.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Список_Товаров.cs">
+      <DependentUpon>Apothecary.tt</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AddIncome.resx">
+      <DependentUpon>AddIncome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddMedicine.resx">
+      <DependentUpon>AddMedicine.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddPay.resx">
+      <DependentUpon>AddPay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddProvider.resx">
+      <DependentUpon>AddProvider.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddSale.resx">
+      <DependentUpon>AddSale.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddWriteoff.resx">
+      <DependentUpon>AddWriteoff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DeleteIncome.resx">
+      <DependentUpon>DeleteIncome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DeleteMedicine.resx">
+      <DependentUpon>DeleteMedicine.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DeletePay.resx">
+      <DependentUpon>DeletePay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DeleteProvider.resx">
+      <DependentUpon>DeleteProvider.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DeleteSale.resx">
+      <DependentUpon>DeleteSale.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DeleteWriteoff.resx">
+      <DependentUpon>DeleteWriteoff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditIncome.resx">
+      <DependentUpon>EditIncome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditMedicine.resx">
+      <DependentUpon>EditMedicine.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditPay.resx">
+      <DependentUpon>EditPay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditProvider.resx">
+      <DependentUpon>EditProvider.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditSale.resx">
+      <DependentUpon>EditSale.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditWriteoff.resx">
+      <DependentUpon>EditWriteoff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainWindow.resx">
+      <DependentUpon>MainWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="SearchWindow.resx">
+      <DependentUpon>SearchWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EntityDeploy Include="Apothecary.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Apothecary.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Apothecary.edmx.diagram">
+      <DependentUpon>Apothecary.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Apothecary.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Apothecary.Context.cs</LastGenOutput>
+      <DependentUpon>Apothecary.edmx</DependentUpon>
+    </Content>
+    <Content Include="Apothecary.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Apothecary.edmx</DependentUpon>
+      <LastGenOutput>Apothecary.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="22328cfe7be34829a837ea55ec1de559" Name="Diagram1">
+        <EntityTypeShape EntityType="Apothecary.sysdiagrams" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Apothecary.Поставщики" Width="1.5" PointX="0.75" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Apothecary.Прибыль" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Apothecary.Продажи" Width="1.5" PointX="5.25" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="Apothecary.Расчет_с_поставщиками" Width="1.5" PointX="3" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Apothecary.Списание" Width="1.5" PointX="5.25" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Apothecary.Список_Товаров" Width="1.5" PointX="3" PointY="5.125" IsExpanded="true" />
+        <AssociationConnector Association="Apothecary.FK_Расчет_с_поставщиками_Поставщики" ManuallyRouted="false" />
+        <AssociationConnector Association="Apothecary.FK_Список_Товаров_Поставщики" ManuallyRouted="false" />
+        <AssociationConnector Association="Apothecary.FK_Продажи_Список_Товаров" ManuallyRouted="false" />
+        <AssociationConnector Association="Apothecary.FK_Списание_Список_Товаров" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
